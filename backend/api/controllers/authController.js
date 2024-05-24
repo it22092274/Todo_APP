@@ -1,6 +1,7 @@
 const User = require("../models/Users");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const logger = require("../utils/logger");
 
 const JWT_SECRET = process.env.JWT_SECRET ; // Ensure you have this in your environment variables
 
@@ -10,18 +11,21 @@ const login = async (req, res, next) => {
     try {
         // Check if all fields are provided
         if (!email || !password) {
+            logger.warn('Login attempt with missing fields');
             return res.status(401).json({ message: "All fields are required" });
         }
 
         // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
+            logger.warn(`Login attempt with invalid email: ${email}`);
             return res.status(401).json({ message: "Invalid email or password" });
         }
 
         // Compare password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
+            logger.warn(`Login attempt with invalid password for email: ${email}`);
             return res.status(401).json({ message: "Invalid email or password" });
         }
 
@@ -38,8 +42,11 @@ const login = async (req, res, next) => {
         // Sign JWT token (expires in 100 years to mimic never-ending session)
         const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '100y' });
 
+        logger.info(`User logged in: ${email}`);
         return res.status(200).json({ message: "Login Successful", token });
+    
     } catch (error) {
+        logger.error('Error during login', error);
         next(error);
     }
 };
@@ -56,17 +63,20 @@ const signup = async (req, res, next) => {
     try {
         // Check if all fields are provided
         if (!fname || !lname || !email || !password || !type) {
+            logger.warn('Signup attempt with missing fields');
             return res.status(401).json({ message: "All fields are required" });
         }
 
         // Validate fname and lname
         if (!isValidName(fname) || !isValidName(lname)) {
+            logger.warn('Signup attempt with invalid names')
             return res.status(401).json({ message: "First and last names should only contain letters" });
         }
 
         // Check if user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
+            logger.warn(`Signup attempt with already registered email: ${email}`);
             return res.status(400).json({ message: "Email is already registered" });
         }
 
@@ -86,8 +96,11 @@ const signup = async (req, res, next) => {
         // Save user to database
         await newUser.save();
 
+        logger.info(`User registered: ${email}`);
         return res.status(200).json({ message: "Signup Successful", data: newUser });
+    
     } catch (error) {
+        logger.error('Error during signup', error);
         next(error);
     }
 };

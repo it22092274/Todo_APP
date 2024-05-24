@@ -1,0 +1,4 @@
+{"level":"info","message":"Incoming request: POST /api/auth/signup","timestamp":"2024-05-24T13:59:46.452Z"}
+{"level":"info","message":"User registered: vihanganethusara00@gmail.com","timestamp":"2024-05-24T13:59:47.191Z"}
+{"level":"info","message":"Incoming request: POST /api/auth/login","timestamp":"2024-05-24T14:01:42.934Z"}
+{"level":"info","message":"User logged in: vihanganethusara00@gmail.com","timestamp":"2024-05-24T14:01:43.494Z"}
