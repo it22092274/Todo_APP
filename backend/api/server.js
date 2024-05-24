@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const todoRoutes = require('./routes/todoRouters.js');
 const authRouter = require('./routes/authRoute.js')
+const collectionRouter = require('./routes/collectionRoute.js')
 const errorHandler = require('./middleware/errorHandler.js');
 const logger = require('./utils/logger.js');
 
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/todos', todoRoutes);
 app.use('/api/auth', authRouter);
+app.use('/api/collection', collectionRouter);
 
 // Error handling middleware
 app.use(errorHandler);

@@ -2,3 +2,23 @@
 {"level":"info","message":"User registered: vihanganethusara00@gmail.com","timestamp":"2024-05-24T13:59:47.191Z"}
 {"level":"info","message":"Incoming request: POST /api/auth/login","timestamp":"2024-05-24T14:01:42.934Z"}
 {"level":"info","message":"User logged in: vihanganethusara00@gmail.com","timestamp":"2024-05-24T14:01:43.494Z"}
+{"level":"info","message":"Incoming request: POST /api/auth/signup","timestamp":"2024-05-24T16:11:06.888Z"}
+{"_message":"User validation failed","errors":{"type":{"kind":"enum","message":"`student` is not a valid enum value for path `type`.","name":"ValidatorError","path":"type","properties":{"enumValues":["group","personal","organization"],"message":"`student` is not a valid enum value for path `type`.","path":"type","type":"enum","value":"student"},"value":"student"}},"level":"error","message":"Error during signup User validation failed: type: `student` is not a valid enum value for path `type`.","stack":"ValidationError: User validation failed: type: `student` is not a valid enum value for path `type`.\n    at Document.invalidate (E:\\Mern\\Todo_APP\\backend\\node_modules\\mongoose\\lib\\document.js:3289:32)\n    at E:\\Mern\\Todo_APP\\backend\\node_modules\\mongoose\\lib\\document.js:3050:17\n    at E:\\Mern\\Todo_APP\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1388:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)","timestamp":"2024-05-24T16:11:07.354Z"}
+{"level":"info","message":"Incoming request: POST /api/auth/signup","timestamp":"2024-05-24T16:12:01.694Z"}
+{"level":"info","message":"User registered: vihanganethusara00@gmail.com","timestamp":"2024-05-24T16:12:02.316Z"}
+{"level":"info","message":"Incoming request: POST /api/auth/login","timestamp":"2024-05-24T16:12:20.725Z"}
+{"level":"info","message":"User logged in: vihanganethusara00@gmail.com","timestamp":"2024-05-24T16:12:21.109Z"}
+{"level":"info","message":"Incoming request: POST /api/collection/create","timestamp":"2024-05-24T16:13:40.673Z"}
+{"level":"info","message":"Incoming request: POST /api/collection/create","timestamp":"2024-05-24T16:14:24.843Z"}
+{"level":"info","message":"Incoming request: POST /api/collection/create","timestamp":"2024-05-24T16:19:39.339Z"}
+{"level":"info","message":"Authorization successful for user: vihanganethusara00@gmail.com","timestamp":"2024-05-24T16:19:39.378Z"}
+{"expiredate":"2024-12-31","level":"info","message":"Collection created successfully","name":"University","timestamp":"2024-05-24T16:19:39.975Z","type":"single"}
+{"level":"info","message":"Incoming request: POST /api/collection/create","timestamp":"2024-05-24T16:20:02.024Z"}
+{"level":"info","message":"Authorization successful for user: vihanganethusara00@gmail.com","timestamp":"2024-05-24T16:20:02.029Z"}
+{"expiredate":"2024-12-31","level":"info","message":"Collection created successfully","name":"Business","timestamp":"2024-05-24T16:20:02.238Z","type":"group"}
+{"level":"info","message":"Incoming request: GET /api/collection/display","timestamp":"2024-05-24T16:23:27.576Z"}
+{"level":"info","message":"Authorization successful for user: vihanganethusara00@gmail.com","timestamp":"2024-05-24T16:23:27.579Z"}
+{"level":"info","message":"Collection fetched: {\n  _id: new ObjectId('6650be1becb9beeef96bcb5a'),\n  name: 'University',\n  type: 'single',\n  expiredate: 2024-12-31T00:00:00.000Z,\n  __v: 0\n},{\n  _id: new ObjectId('6650be32ecb9beeef96bcb5c'),\n  name: 'Business',\n  type: 'group',\n  expiredate: 2024-12-31T00:00:00.000Z,\n  __v: 0\n}","timestamp":"2024-05-24T16:23:27.802Z"}
+{"level":"info","message":"Incoming request: PATCH /api/collection/update/6650be1becb9beeef96bcb5a?id=6650be1becb9beeef96bcb5a","timestamp":"2024-05-24T16:26:46.334Z"}
+{"level":"info","message":"Authorization successful for user: vihanganethusara00@gmail.com","timestamp":"2024-05-24T16:26:46.339Z"}
+{"level":"info","message":"Collection updated successfully","timestamp":"2024-05-24T16:26:46.776Z","updatedCollection":{"__v":0,"_id":"6650be1becb9beeef96bcb5a","expiredate":"+020024-06-07T18:30:00.000Z","name":"University Project","type":"group"}}
